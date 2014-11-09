@@ -97,8 +97,8 @@ get '/' do
 end
 
 post '/set_name' do
-  if params[:player_name] == ''
-    @error = "You must supply a name."
+  if params[:player_name] == '' || params[:player_name].downcase.count("a-z") != params[:player_name].length
+    @error = "You must supply a valid name."
     halt erb :set_name_form
   end
   session[:player_name] = params[:player_name]
