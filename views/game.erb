@@ -70,7 +70,14 @@
         <i class="glyphicon glyphicon-bookmark"></i>
     </div>
       <div class="text">
-        <var><%= session[:dealer_score] %></var>
+        <var>
+
+    <% unless @dealers_turn || @show_keep_playing_button %>
+    <i class="glyphicon glyphicon-question-sign"></i>
+    <% else %>
+    <%= session[:dealer_score] %>
+    <% end %>
+        </var>
         <label class="text-muted">Dealer Points</label>
       </div>
     <div class="options"></div>
@@ -81,7 +88,11 @@
 
 <div class="well cardtable" id='dealer'>
     <h4 class="whitetext">Dealer's Cards</h4>
+    <% if @dealers_turn || @show_keep_playing_button %>
     <%= cards_html(session[:dealer_hand]) %>
+    <% else %>
+    <%= cards_html(session[:dealer_hand], true) %>
+    <% end %>
 </div>
 
 <div class="well cardtable" id='player'>

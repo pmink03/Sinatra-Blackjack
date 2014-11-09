@@ -40,10 +40,14 @@ helpers do
   end
 
 
-  def cards_html(hand)
+  def cards_html(hand, hide_dealer_card=false)
     hand_string = ''
-    hand.each do |card|
-      hand_string += "<img src='/images/cards/" + card[0] + "_" + card[1] + ".jpg' class='playingcards'>"
+    hand.each_with_index do |card, idx|
+      if hide_dealer_card && idx == 1
+        hand_string += "<img src='/images/cards/cover.jpg' class='playingcards'>"
+      else
+        hand_string += "<img src='/images/cards/" + card[0] + "_" + card[1] + ".jpg' class='playingcards'>"
+      end
     end
     hand_string
   end
@@ -163,7 +167,7 @@ get '/init_game' do
 end
 
 get '/game' do
-  @dealer_cards = dealer_cards_html
+  #@dealer_cards = dealer_cards_html
   erb :game
 end
 
