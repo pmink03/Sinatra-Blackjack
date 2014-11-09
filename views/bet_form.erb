@@ -1,0 +1,17 @@
+<%
+@disabled = ""
+if session[:player_cash] <= 0
+	@disabled = "disabled"
+end
+
+%>
+<div class="well">
+<h4>Please enter your bet. You have $<%= session[:player_cash] %> Last bet: $<%= session[:player_bet] %></h4>
+  <form class="form-inline" role="form" action="/bet" method="post">
+    <div class="form-group">
+      <input type="text" class="form-control" name='bet_amount'  placeholder="Enter Player Bet" value="<%= session[:player_bet] %>" <%= @disabled %>>
+    </div>
+    <button type="submit" class="btn btn-default" <%= @disabled %>>Make Bet</button>
+    <button type="submit" formmethod="get" formaction="/new_game" class="btn btn-info">Start Over</button>
+  </form>
+</div>

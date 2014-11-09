@@ -1,0 +1,47 @@
+
+/*!
+ * Start Bootstrap - The Big Picture HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+	margin-top: 10px;
+	margin-bottom: 50px;
+	background: none;
+}
+
+.full {
+  background: url('/images/Blackjack_board.JPG') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+form#hit_form {
+	float: left;
+	margin-right: 10px;
+}
+
+form#stay_form {
+	float: left;
+}
+
+.cardtable {
+	background-color:rgba(105,139,105,0.5);"
+}
+
+.whitetext {
+	color:white;
+}
+
+.playingcards {
+	margin:0px 5px 5px 0px; height:115px;width:80px;-webkit-box-shadow: 5px 5px 5px #333333;box-shadow: 5px 5px 5px #333333;
+}
+
+.hero-widget { text-align: center; padding-top: 2px; padding-bottom: 2px; }
+.hero-widget .icon { display: block; font-size: 24px; line-height: 24px; margin-bottom: 1px; text-align: center; }
+.hero-widget var { display: block; height: 44px; font-size: 32px; line-height: 32px; font-style: normal; }
+.hero-widget label { font-size: 14px; }
+.hero-widget .options { margin-top: 1px; }

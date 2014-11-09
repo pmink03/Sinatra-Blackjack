@@ -1,0 +1,92 @@
+<div id="game">
+
+<div class="row">
+
+<div class="col-sm-3">
+  <div class="hero-widget well well-sm">
+      <div class="icon">
+        <i class="glyphicon glyphicon-user"></i>
+      </div>
+      <div class="text">
+        <var><%= session[:player_score] %></var>
+        <label class="text-muted"><%= session[:player_name] %>'s Points</label>
+      </div>
+      <div class="options"></div>
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div class="hero-widget well well-sm">
+    <form>
+      <div class="btn-group-vertical">
+        <% if @show_hit_or_stay_buttons %>
+            <button type="submit" formmethod="post" formaction="/game/player/hit" class="btn btn-success">Hit</button>
+            <button type="submit" formmethod="post" formaction="/game/player/stay" class="btn btn-warning">Stay</button>
+        <% end
+           if @dealers_turn %>
+            <div class="text">
+                <label class="text-muted"><%= session[:player_name] %> Stayed</label>
+            </div>
+            <button type="submit" formmethod="post" formaction="/game/dealer" class="btn btn-danger">Dealer's Turn</button>
+        <% end %>
+        <% if @show_keep_playing_button %>
+            <button type="submit" formmethod="post" formaction="/keep_playing" class="btn btn-success">Keep Playing!</button>
+        <% end %>
+              <button type="submit" formmethod="get" formaction="/new_game" class="btn btn-info">Start Over</button>
+      </div>
+    </form>                
+  </div>
+</div>
+
+<div class="col-sm-3">
+  <div class="hero-widget well well-sm">
+    <div class="icon">
+        <i class="glyphicon glyphicon-align-justify"></i>
+    </div>
+    <div class="text">
+        <var>$<%= session[:player_cash] %></var>
+        <label class="text-muted">Total Cash</label>
+    </div>
+    <div class="options"></div>
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div class="hero-widget well well-sm">
+    <div class="icon">
+      <i class="glyphicon glyphicon-hand-down"></i>
+    </div>
+    <div class="text">
+      <var>$<%= session[:player_bet] %></var>
+      <label class="text-muted">Current Bet</label>
+    </div>
+    <div class="options"></div>
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div class="hero-widget well well-sm">
+    <div class="icon">
+        <i class="glyphicon glyphicon-bookmark"></i>
+    </div>
+      <div class="text">
+        <var><%= session[:dealer_score] %></var>
+        <label class="text-muted">Dealer Points</label>
+      </div>
+    <div class="options"></div>
+  </div>
+</div>
+
+</div>
+
+<div class="well cardtable" id='dealer'>
+    <h4 class="whitetext">Dealer's Cards</h4>
+    <%= cards_html(session[:dealer_hand]) %>
+</div>
+
+<div class="well cardtable" id='player'>
+    <h4 class="whitetext"><%= session[:player_name] %>'s Cards</h4>
+    <%= cards_html(session[:player_hand]) %>
+</div>
+
+</div>

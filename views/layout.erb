@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html class="full" >
+  <head>
+    <title>Blackjack</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="/application.css">
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  </head>
+  <body style="padding-top: 5px;">
+
+  <div class="container">
+    <%if @error %>
+    <div class="alert alert-danger" role="alert" style="text-align:center;">
+    <h2><%=@error%></h2>
+    </div>
+    <% end %>
+
+    <%= yield %>
+  </div>
+
+  </body>
+</html>
