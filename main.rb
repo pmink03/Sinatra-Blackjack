@@ -147,7 +147,6 @@ get '/init_game' do
   update_score('dealer')
   if session[:player_score] == 21 && session[:dealer_score] == 21
     @error = "We have a tie!"
-    @smiley = "Deleket-Smileys-26.png"
     @show_hit_or_stay_buttons = false
     @show_keep_playing_button = true
   elsif session[:player_score] == 21
@@ -196,7 +195,7 @@ post '/game/dealer' do
     @dealers_turn = true
   end
 
-  erb :game
+  erb :game, layout: false
 end
 
 
@@ -213,7 +212,7 @@ post '/game/player/hit' do
   else
     @show_hit_or_stay_buttons = true
   end
-  erb :game
+  erb :game, layout: false
 end 
 
 post '/game/player/stay' do
@@ -231,5 +230,5 @@ post '/game/player/stay' do
     @show_hit_or_stay_buttons = false
     @dealers_turn = true
   end
-  erb :game
+  erb :game, layout: false
 end
